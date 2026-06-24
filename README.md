@@ -1,9 +1,6 @@
 # TidyBlogTemplate
 
 A clean, minimal, and highly customizable Jekyll template for building personal blogs, digital gardens, and knowledge bases. Perfect for developers, researchers, and writers who value content clarity over visual noise.
-
-![Demo](https://blueflylabor.github.io/)
-
 ## ✨ Features
 
 - **Minimalist Design**: Elegant, distraction-free layout focused on readability and content consumption.
