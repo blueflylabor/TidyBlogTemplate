@@ -1,4 +1,4 @@
-#Digital Garden 🌿
+# Digital Garden 🌿
 
 **A clean, minimalist Jekyll-powered personal knowledge base and digital garden.**  
 It combines thoughtful technical writing with practical tools — including a high-security PDF management and decryption system.
