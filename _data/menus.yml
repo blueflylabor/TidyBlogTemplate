@@ -4,8 +4,11 @@
 - default: menu_notes
   url:   "notes"
 
-- default: menu_knowledge
-  url:   "knowledge"
+- default: menu_insights
+  url:   "insights"
+
+- default: menu_solution
+  url:   "solution"
 
 - default: menu_archive
   url:   "archive"
@@ -21,6 +24,9 @@
 
 - default: menu_say
   url: "saysth"
+
+- default: menu_filestore
+  url: "filestore"
 
 - default: menu_search
   url: "search"
