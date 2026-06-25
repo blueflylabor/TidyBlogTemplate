@@ -1,133 +1,151 @@
-# TidyBlogTemplate
+#Digital Garden 🌿
 
-A clean, minimal, and highly customizable Jekyll template for building personal blogs, digital gardens, and knowledge bases. Perfect for developers, researchers, and writers who value content clarity over visual noise.
-## ✨ Features
+**A clean, minimalist Jekyll-powered personal knowledge base and digital garden.**  
+It combines thoughtful technical writing with practical tools — including a high-security PDF management and decryption system.
 
-- **Minimalist Design**: Elegant, distraction-free layout focused on readability and content consumption.
-- **Jekyll-Powered**: Built with Jekyll for fast static site generation and seamless GitHub Pages deployment.
-- **Responsive & Modern**: Mobile-first design that looks great on all devices.
-- **Powerful Content Organization**:
-  - Categories and tags support
-  - Archive pages
-  - Pagination
-  - Search functionality
+**Live Site**: [https://blueflylabor.github.io/](https://blueflylabor.github.io/)
+
+---
+
+## ✨ Project Highlights
+
+### 📂 PDF Secure Cabinet (High-Performance Tool)
+A fully static, client-side PDF file management and secure decryption system located at `/filestore/`.
+
+**Core Capabilities:**
+- **Static File Cabinet**: Automatic listing of public PDFs with modal preview (PDF.js), one-click download, and absolute URL copying.
+- **High-Security Decrypt Viewer**: Perfect alignment with OpenSSL 3.x using AES-256-CBC, PBKDF2-SHA512, and 204,800 iterations.
+- Robust frontend decryption (CryptoJS) with fixes for key/IV derivation issues.
+- URL-based direct access: `?f=filename.enc&k=yourpassword`
+- Smooth UX with auto-scroll during long decryption and high-DPI Retina rendering.
+- Multilingual support (Chinese, English, German).
+
+**Recommended Encryption Command:**
+```bash
+openssl enc -aes-256-cbc -salt -pbkdf2 -iter 204800 -md sha512 \
+  -in yourfile.pdf -out yourfile.enc -k "yourpassword"
+```
+
+**Access**: [Open PDF Secure Cabinet →](https://blueflylabor.github.io/filestore/)
+
+---
+
+## 🚀 Site Structure (2026 Rebuild)
+
+The site is organized into four main pillars:
+
+- **Notes**: Core technical documentation (Distributed Systems, Databases, Python, macOS, etc.)
+- **Insights**: Deep analysis and logical deconstruction of complex topics
+- **Solutions**: Practical, step-by-step troubleshooting guides
+- **Archive**: Historical records and legacy materials
+
+---
+
+## ✨ Key Features
+
+- **Minimalist & Readable Design**: Focused on content clarity with no unnecessary visual noise
+- **Jekyll Static Site**: Blazing-fast generation and native GitHub Pages deployment
+- **Bilingual Automation**: Chinese ↔ English content with Python-powered translation workflow
 - **Rich Content Support**:
-  - Mathematics rendering with MathJax
-  - Interactive diagrams with Mermaid
-  - Syntax highlighting for code blocks
-  - Markdown extensions (tables, footnotes, etc.)
-- **Bilingual Ready**: Easy setup for multilingual content with automation support.
-- **Comment System Ready**: Integrated support for Gitalk and other comment systems.
-- **SEO Optimized**: Built-in SEO tags and sitemap generation.
-- **Analytics Integration**: Easy Google Analytics setup.
-- **Docker Support**: Run locally with Docker Compose for consistent development.
-- **Automation Friendly**: Includes Python scripts for content processing and translation workflows.
+  - MathJax for mathematics
+  - Mermaid for diagrams
+  - Syntax highlighting
+  - Full Markdown extensions
+- **Search Functionality**: Fast client-side search
+- **Responsive & Modern**: Excellent experience on all devices
+- **PDF Management Suite**: Public cabinet + enterprise-grade client-side encryption/decryption tool
+- **SEO Optimized**: Meta tags, sitemap, and clean URLs
+- **Automation Ready**: Python scripts for content processing and translation
 
-## 🚀 Quick Start
+---
+
+## 🛠️ Quick Start (Local Development)
 
 ### Prerequisites
+- Ruby + Bundler, or Docker (recommended)
 
-- Ruby + Bundler
-- Or Docker (recommended for simplicity)
+### Using Bundler
+```bash
+git clone https://github.com/blueflylabor/blueflylabor.github.io.git
+cd blueflylabor.github.io
+bundle install
+bundle exec jekyll serve
+```
 
-### Local Development
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/blueflylabor/TidyBlogTemplate.git
-   cd TidyBlogTemplate
-   ```
-
-2. **Install dependencies**
-   ```bash
-   bundle install
-   ```
-
-3. **Serve locally**
-   ```bash
-   bundle exec jekyll serve
-   ```
-
-   Visit `http://localhost:4000`
+Visit `http://localhost:4000`
 
 ### Using Docker
-
 ```bash
 docker-compose up
 ```
 
+---
+
 ## 📁 Project Structure
 
 ```
-TidyBlogTemplate/
-├── _posts/           # Blog posts (Markdown)
-├── _pages/           # Static pages
-├── _layouts/         # HTML layouts
-├── _includes/        # Reusable components
-├── _sass/            # Stylesheets
-├── assets/           # Images and other static files
-├── _config.yml       # Main configuration
-├── Gemfile           # Ruby dependencies
-└── translate.py      # Content automation scripts
+blueflylabor.github.io/
+├── _posts/              # Blog posts & notes
+├── _pages/              # Static pages
+├── filestore/           # PDF management system
+│   ├── files/           # Public PDFs
+│   ├── encrypted/       # Encrypted files
+│   ├── cabinet/         # Public file cabinet
+│   └── decrypt/         # Secure decryption viewer
+├── _layouts/            # HTML layouts
+├── _includes/           # Reusable components
+├── _sass/               # Styles (Sass)
+├── assets/              # JS, CSS, images
+├── _config.yml          # Site configuration
+├── translate.py         # Translation automation
+├── Gemfile
+├── docker-compose.yml
+└── README.md
 ```
-
-## 🛠️ Customization
-
-### Site Configuration
-
-Edit `_config.yml` to set:
-
-- Site title, description, and author info
-- Base URL and domain
-- Language preferences
-- Pagination settings
-- Analytics and comment system keys
-
-### Adding Content
-
-Create new posts in the `_posts` directory following the naming convention:
-
-```
-YYYY-MM-DD-your-post-title.md
-```
-
-### Styling
-
-Customize colors and typography by modifying files in the `_sass` directory.
-
-## 🧩 Supported Features
-
-- **Full Markdown Support** with Jekyll extensions
-- **Math & Diagrams**: MathJax and Mermaid integration
-- **Archives**: Automatic category, tag, and date-based archives
-- **Search**: Client-side search capabilities
-- **RSS Feed**: Automatic feed generation
-- **Sitemap**: SEO-friendly sitemap
-- **404 Page**: Custom error page
-- **Dark Mode Ready**: Foundation for theme switching
-
-## Deployment
-
-### GitHub Pages (Recommended)
-
-1. Push your changes to the `main` branch
-2. Enable GitHub Pages in repository settings
-3. Your site will be live at `https://yourusername.github.io`
-
-## Tech Stack
-
-- **Static Site Generator**: Jekyll
-- **Styling**: Sass
-- **Markdown Processor**: Redcarpet
-- **Deployment**: GitHub Pages
-- **Development**: Docker Compose
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-**Live Demo**: [https://blueflylabor.github.io/](https://blueflylabor.github.io/)
+## 🧩 Customization
 
-Made with ❤️ for clean content and thoughtful writing.
+- Edit `_config.yml` for site title, author, language, etc.
+- Add new posts in `_posts/` using `YYYY-MM-DD-title.md`
+- Place public PDFs in `filestore/files/`
+- Place encrypted files in `filestore/encrypted/`
+- Customize styles in `_sass/`
+- Extend languages in the JavaScript i18n dictionaries
+
+---
+
+## 🛠️ Tech Stack
+
+- **Static Site Generator**: Jekyll
+- **Theme**: Customized Jekyll-Paper / Minimalist
+- **Styling**: Sass + Flexbox + Modern CSS
+- **Frontend Tools**: CryptoJS, PDF.js, custom high-DPI rendering
+- **Automation**: Python scripts + GitHub Actions
+- **Hosting**: GitHub Pages
+- **Search**: Client-side JSON index
+
+---
+
+## Security Note (PDF Tool)
+
+All decryption occurs **entirely in the browser**. No data or passwords are transmitted to any server. The system is designed for maximum security on static hosting.
+
+---
+
+## Deployment
+
+1. Push to the `main` branch
+2. Enable GitHub Pages in repository settings
+3. Site will be live at `https://blueflylabor.github.io/`
+
+---
+
+## License
+
+This project is open source under the [MIT License](LICENSE).
+
+---
+
+**Made with ❤️ for clarity, security, and continuous learning.**
